@@ -1,11 +1,8 @@
-# Predicting IV Fluid Utilization in Emergency Departments  
-**Integrating Structured and Unstructured Clinical Data with NLP and Machine Learning**
+### Predicting IV Fluid Utilization in Emergency Departments  **Integrating Structured and Unstructured Clinical Data with NLP and Machine Learning**
 
 This repository contains the complete code, data, and results for a study aimed at predicting intravenous (IV) fluid utilization in emergency department (ED) settings using a multimodal approach. Structured clinical data is combined with unstructured patient narratives processed using GPT-2 embeddings.
 
----
-
-## Repository Structure
+### Repository Structure
 ├── README.md # This file
 
 ├── ed_data.csv # Raw dataset 
