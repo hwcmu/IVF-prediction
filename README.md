@@ -1,15 +1,99 @@
-## Predicting IV Fluid Utilization in Emergency Departments: Integrating Structured and Unstructured Clinical Data with NLP and Machine Learning
+# Predicting IV Fluid Utilization in Emergency Departments  
+**Integrating Structured and Unstructured Clinical Data with NLP and Machine Learning**
 
-This repository contains the complete code, data, and results for a study aimed at predicting intravenous (IV) fluid utilization in emergency department (ED) settings using a multimodal approach. The project combines structured clinical data with unstructured patient narratives processed using GPT-2 embeddings, and leverages machine learning techniques to enhance predictive performance. All experiments and analyses are designed to be fully reproducible in a Google Colab environment, ensuring easy access and execution for researchers and practitioners.
+---
 
-### Repository Structure and Reproducibility
-The repository is organized to facilitate clear navigation and reproducibility. Key files and directories include:
+## 1. Description  
+This repository contains the full code, data, and results for a project that predicts intravenous (IV) fluid utilization in emergency departments (EDs) using both structured and unstructured clinical data. Unstructured patient narratives are processed via GPT-2 embeddings, while machine learning models—specifically logistic regression and gradient boosting—are used for prediction. The study is reproducible in Google Colab for ease of access and verification.
 
-- README.md: This file, which provides an overview of the project, instructions for setup, and detailed explanations of each component.
+---
 
-- ed_data.csv: The raw dataset sourced from the 2021 National Hospital Ambulatory Medical Care Survey – Emergency Department (NHAMCS-ED).
+## 2. Dataset Information  
+- **Source**: 2021 National Hospital Ambulatory Medical Care Survey – Emergency Department (NHAMCS-ED)  
+- **Access**:  
+  - [CDC NHAMCS Documentation](https://www.cdc.gov/nchs/ahcd/index.htm)  
+  - [Survey Descriptions & Codebooks](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/)  
+  - [Raw SAS Data](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHAMCS/)  
+  - [SAS Format Files](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/sas/)  
 
-- Notebooks such as text cleaning.ipynb, data_before_model.ipynb, descriptive analysis.ipynb, Base LR.ipynb, and GBC.ipynb that outline the full data processing pipeline, exploratory analysis, and model building for both logistic regression and Gradient Boosting Classifier.
+> **Note**: All data used are publicly available and anonymized. No ethical review or participant consent was required.
 
-- Supplementary files, including preprocessed datasets (cleaned_ed_data.csv, processed_data.7z) and visual outputs (Figure 1. Forest Plot of ORs.png, Figure 2. Mean ROC curve.jpg), provide detailed insights into the data and model performance.
-This structured approach, coupled with step-by-step instructions in the Colab notebooks, ensures that the experiments can be replicated easily by anyone with access to a Google Colab account.
+---
+
+## 3. Repository Structure  
+
+- `README.md` – Project overview, setup, and usage guide  
+- `ed_data.csv` – Raw dataset from NHAMCS-ED 2021  
+- **Notebooks**:  
+  - `text cleaning.ipynb` – Processing unstructured notes  
+  - `data_before_model.ipynb` – Data merging and feature engineering  
+  - `descriptive analysis.ipynb` – Summary statistics and visualizations  
+  - `Base LR.ipynb` – Logistic Regression modeling  
+  - `GBC.ipynb` – Gradient Boosting Classifier modeling  
+- **Supplementary Files**:  
+  - `cleaned_ed_data.csv`, `processed_data.7z` – Preprocessed datasets  
+  - `Figure 1. Forest Plot of ORs.png`, `Figure 2. Mean ROC curve.jpg` – Visualizations of results  
+
+---
+
+## 4. Usage Instructions  
+
+1. Open notebooks in Google Colab or your local Jupyter environment.  
+2. Start with `text cleaning.ipynb` to process raw text data.  
+3. Proceed through the modeling notebooks in order (`data_before_model.ipynb` → `Base LR.ipynb` / `GBC.ipynb`).  
+4. Visualizations and performance metrics are generated at each step.  
+
+---
+
+## 5. Requirements  
+
+Ensure the following libraries are installed (automatically handled in Colab):  
+```bash
+pandas  
+numpy  
+scikit-learn  
+matplotlib  
+seaborn  
+transformers  
+joblib  
+```
+
+---
+
+## 6. Methodology  
+
+- **Data Processing**: Combined structured data (vitals, diagnoses) with unstructured ED visit narratives.  
+- **Text Embedding**: GPT-2 embeddings used for representing clinical narratives.  
+- **Modeling**:  
+  - Logistic Regression (baseline)  
+  - Gradient Boosting Classifier (GBC)  
+- **Evaluation**: ROC curves, feature importance (OR plots), and cross-validation for model comparison.
+
+---
+
+## 7. Citations  
+
+If you use this repository in your work, please cite the original NHAMCS dataset source and consider referencing this project as follows:
+
+> "Predicting IV Fluid Utilization in Emergency Departments: Integrating Structured and Unstructured Clinical Data with NLP and Machine Learning" (2025).  
+
+---
+
+## 8. License & Contributions  
+
+This repository is provided under the MIT License. Contributions via pull requests are welcome.
+
+---
+
+## 9. Declarations  
+
+- **Human Ethics and Consent to Participate**: Not applicable, as this study utilized publicly available, anonymized data from the NHAMCS-ED dataset.  
+- **Consent to Participate**: Not applicable.  
+- **Ethics Approval**: Not applicable.  
+- **Funding**: This research received no specific grant from any funding agency, commercial, or not-for-profit sectors.  
+- **Availability of Data and Material**:  
+  - Data are available via the CDC: https://www.cdc.gov/nchs/ahcd/index.htm  
+  - Survey documentation and codebooks: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/  
+  - SAS datasets: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHAMCS/  
+  - SAS format files: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/sas/  
+- **Competing Interests**: The authors declare that they have no competing interests.
