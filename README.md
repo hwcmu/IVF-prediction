@@ -77,9 +77,4 @@ joblib
 - **Consent to Participate**: Not applicable.  
 - **Ethics Approval**: Not applicable.  
 - **Funding**: This research received no specific grant from any funding agency, commercial, or not-for-profit sectors.  
-- **Availability of Data and Material**:  
-  - Data are available via the CDC: https://www.cdc.gov/nchs/ahcd/index.htm  
-  - Survey documentation and codebooks: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/  
-  - SAS datasets: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHAMCS/  
-  - SAS format files: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/sas/  
 - **Competing Interests**: The authors declare that they have no competing interests.
