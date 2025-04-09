@@ -3,12 +3,12 @@
 
 ---
 
-## 1. Description  
+## Description  
 This repository contains the full code, data, and results for a project that predicts intravenous (IV) fluid utilization in emergency departments (EDs) using both structured and unstructured clinical data. Unstructured patient narratives are processed via GPT-2 embeddings, while machine learning models—specifically logistic regression and gradient boosting—are used for prediction. The study is reproducible in Google Colab for ease of access and verification.
 
 ---
 
-## 2. Dataset Information  
+## Dataset Information  
 - **Source**: 2021 National Hospital Ambulatory Medical Care Survey – Emergency Department (NHAMCS-ED)  
 - **Access**:  
   - [CDC NHAMCS Documentation](https://www.cdc.gov/nchs/ahcd/index.htm)  
@@ -20,7 +20,7 @@ This repository contains the full code, data, and results for a project that pre
 
 ---
 
-## 3. Repository Structure  
+## Repository Structure  
 
 - `README.md` – Project overview, setup, and usage guide  
 - `ed_data.csv` – Raw dataset from NHAMCS-ED 2021  
@@ -36,7 +36,7 @@ This repository contains the full code, data, and results for a project that pre
 
 ---
 
-## 4. Usage Instructions  
+## Usage Instructions  
 
 1. Open notebooks in Google Colab or your local Jupyter environment.  
 2. Start with `text cleaning.ipynb` to process raw text data.  
@@ -45,7 +45,7 @@ This repository contains the full code, data, and results for a project that pre
 
 ---
 
-## 5. Requirements  
+## Requirements  
 
 Ensure the following libraries are installed (automatically handled in Colab):  
 ```bash
@@ -60,7 +60,7 @@ joblib
 
 ---
 
-## 6. Methodology  
+## Methodology  
 
 - **Data Processing**: Combined structured data (vitals, diagnoses) with unstructured ED visit narratives.  
 - **Text Embedding**: GPT-2 embeddings used for representing clinical narratives.  
@@ -71,21 +71,7 @@ joblib
 
 ---
 
-## 7. Citations  
-
-If you use this repository in your work, please cite the original NHAMCS dataset source and consider referencing this project as follows:
-
-> "Predicting IV Fluid Utilization in Emergency Departments: Integrating Structured and Unstructured Clinical Data with NLP and Machine Learning" (2025).  
-
----
-
-## 8. License & Contributions  
-
-This repository is provided under the MIT License. Contributions via pull requests are welcome.
-
----
-
-## 9. Declarations  
+## Declarations  
 
 - **Human Ethics and Consent to Participate**: Not applicable, as this study utilized publicly available, anonymized data from the NHAMCS-ED dataset.  
 - **Consent to Participate**: Not applicable.  
