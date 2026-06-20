@@ -1,79 +1,71 @@
-# Integrating multimodal clinical data to predict IV fluid utilization: a comparative analysis of natural language processing techniques
+# Integrating multimodal clinical data to predict intravenous (IV) fluid utilization
 
----
+Reproducibility repository for the published open-access article:
 
-## Description  
-This repository contains the full code, data, and results for a project that predicts intravenous (IV) fluid utilization in emergency departments (EDs) using both structured and unstructured clinical data. Unstructured patient narratives are processed via GPT-2 embeddings, while machine learning models—specifically logistic regression and gradient boosting—are used for prediction. The study is reproducible in Google Colab for ease of access and verification.
+> Wang, H., Ling, H., & Zhang, X. (2025). Integrating multimodal clinical data to predict intravenous (IV) fluid utilization: a comparative analysis of natural language processing techniques. *PeerJ Computer Science*, 11, e3441. https://doi.org/10.7717/peerj-cs.3441
 
----
+## Quick Links
 
-## Dataset Information  
-- **Source**: 2021 National Hospital Ambulatory Medical Care Survey – Emergency Department (NHAMCS-ED)  
-- **Access**:  
-  - [CDC NHAMCS Documentation](https://www.cdc.gov/nchs/ahcd/index.htm)  
-  - [Survey Descriptions & Codebooks](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/)  
-  - [Raw SAS Data](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHAMCS/)  
-  - [SAS Format Files](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/sas/)  
+- Published article: https://peerj.com/articles/cs-3441
+- DOI: https://doi.org/10.7717/peerj-cs.3441
+- Repository: https://github.com/hwcmu/IVF-prediction
 
-> **Note**: All data used are publicly available and anonymized. No ethical review or participant consent was required.
+## Repository Scope
 
----
+This repository contains code, data-processing notebooks, and generated figures
+for predicting intravenous (IV) fluid utilization in emergency department visits
+using structured clinical variables and unstructured patient narratives.
 
-## Repository Structure  
+The published article evaluates multimodal models using the 2021 National
+Hospital Ambulatory Medical Care Survey Emergency Department dataset
+(NHAMCS-ED, n = 13,115). Text features are derived from patient narratives using
+several NLP representations, and the structured and unstructured features are
+combined before model fitting.
 
-- `README.md` – Project overview, setup, and usage guide  
-- `ed_data.csv` – Raw dataset from NHAMCS-ED 2021  
-- **Notebooks**:  
-  - `text cleaning.ipynb` – Processing unstructured notes  
-  - `data_before_model.ipynb` – Data merging and feature engineering  
-  - `descriptive analysis.ipynb` – Summary statistics and visualizations  
-  - `Base LR.ipynb` – Logistic Regression modeling  
-  - `GBC.ipynb` – Gradient Boosting Classifier modeling  
-- **Supplementary Files**:  
-  - `cleaned_ed_data.csv`, `processed_data.7z` – Preprocessed datasets  
-  - `Figure 1. Forest Plot of ORs.png`, `Figure 2. Mean ROC curve.jpg` – Visualizations of results  
+## Main Findings Reflected in This Repository
 
----
+- Multimodal models using structured variables plus patient narratives
+  outperformed models using either data source alone.
+- Traditional frequency-based NLP features, especially CountVectorizer,
+  performed strongly for short emergency-department complaint text.
+- Gradient Boosting and Logistic Regression were used as the main supervised
+  learning models in the analysis workflow.
 
-## Usage Instructions  
+## Data
 
-1. Open notebooks in Google Colab or your local Jupyter environment.  
-2. Start with `text cleaning.ipynb` to process raw text data.  
-3. Proceed through the modeling notebooks in order (`data_before_model.ipynb` → `Base LR.ipynb` / `GBC.ipynb`).  
-4. Visualizations and performance metrics are generated at each step.  
+- Source: 2021 NHAMCS-ED public-use data.
+- Access:
+  - CDC NHAMCS documentation: https://www.cdc.gov/nchs/ahcd/index.htm
+  - Codebooks and documentation: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/dataset_documentation/nhamcs/
+  - Raw SAS data: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHAMCS/
 
----
+The repository uses public, anonymized survey data. No individual-level private
+clinical records are included.
 
-## Requirements  
+## Files
 
-Ensure the following libraries are installed (automatically handled in Colab):  
-```bash
-pandas  
-numpy  
-scikit-learn  
-matplotlib  
-seaborn  
-transformers  
-joblib  
+- `text cleaning.ipynb`: processing for unstructured patient narratives.
+- `data_before_model.ipynb`: data merging and feature engineering.
+- `descriptive analysis.ipynb`: summary statistics and visualizations.
+- `model comparison embedding.py`: model comparison workflow for text embeddings.
+- `ed_data.csv`: NHAMCS-ED 2021 input data used in the workflow.
+- `cleaned_ed_data.csv`: processed analysis data.
+- `Figure 1 pipeline.png`, `Figure 2 heatmap_differences.png`,
+  `Figure 3. Forest Plot of Odds Ratios with 95% CI (Log Scale).png`,
+  `Figure 4 lr_roc.png`, `Figure 5 gbc_roc.png`: generated analysis figures.
+
+## Citation
+
+```bibtex
+@article{wang2025ivfluid,
+  title = {Integrating multimodal clinical data to predict intravenous (IV) fluid utilization: a comparative analysis of natural language processing techniques},
+  author = {Wang, Hairong and Ling, Haipeng and Zhang, Xingyu},
+  journal = {PeerJ Computer Science},
+  volume = {11},
+  pages = {e3441},
+  year = {2025},
+  doi = {10.7717/peerj-cs.3441},
+  url = {https://doi.org/10.7717/peerj-cs.3441}
+}
 ```
 
----
-
-## Methodology  
-
-- **Data Processing**: Combined structured data (vitals, diagnoses) with unstructured ED visit narratives.  
-- **Text Embedding**: GPT-2 embeddings used for representing clinical narratives.  
-- **Modeling**:  
-  - Logistic Regression (baseline)  
-  - Gradient Boosting Classifier (GBC)  
-- **Evaluation**: ROC curves, feature importance (OR plots), and cross-validation for model comparison.
-
----
-
-## Declarations  
-
-- **Human Ethics and Consent to Participate**: Not applicable, as this study utilized publicly available, anonymized data from the NHAMCS-ED dataset.  
-- **Consent to Participate**: Not applicable.  
-- **Ethics Approval**: Not applicable.  
-- **Funding**: This research received no specific grant from any funding agency, commercial, or not-for-profit sectors.  
-- **Competing Interests**: The authors declare that they have no competing interests.
